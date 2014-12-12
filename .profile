@@ -7,6 +7,7 @@ set -o vi
 # aliases 
 alias reload=". ~/.profile" 
 alias ls="ls -G -l"
+alias u="cd .."
 
 export PYTHONSTARTUP=$HOME/.pystartup.py
 
@@ -15,6 +16,7 @@ alias profile="vim ~/.profile"
 alias vimrc="vim ~/.vimrc"
 alias tmuxconf="vim ~/.tmux.conf"
 alias input="vim ~/.inputrc"
+alias ptpython="ptpython --vi"
 
 alias c="clear"
 alias downloads='cd ~/Downloads'
@@ -32,8 +34,8 @@ alias mysql="mysql --auto-rehash -u root -p"
 alias postgres_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
 # python path
-PYTHONPATH="/Users/jzhang621/Documents/Workspace/Projects/dashboard/:$PYTHONPATH"
-export PYTHONPATH
+# PYTHONPATH="/Users/jzhang621/Workspace/Projects/d3:$PYTHONPATH"
+# export PYTHONPATH
 
 # quick file navigation
 
@@ -72,3 +74,17 @@ export S3_KEY=AKIAJDLRVP4ONVGK46RQ
 export S3_SECRET=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
 export S3_BUCKET_NAME=brotherresume
 export S3_REGION=us-west-1
+
+# virtualenvwrapper
+export WORKON_HOME=~/Envs
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+alias port_forwarding='sudo ssh -L 80:localhost:5000 jzhang621@j'
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
